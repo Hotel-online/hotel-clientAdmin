@@ -24,8 +24,9 @@ class Form extends Component {
         super(props);
         this.state = {
             id: props.data ? props.data.id : null,
-            codigo: props.data ? props.data.codigo : '',
-            nombre: props.data ? props.data.nombre : ''
+            nombre: props.data ? props.data.nombre : '',
+            precio: props.data ? props.data.precio : '',
+            descripcion: props.data ? props.data.descripcion : ''
         }
     }
     /*
@@ -67,8 +68,9 @@ class Form extends Component {
             this.props.getById(id).then(data => {
                 this.setState({
                     id: data.id,
-                    codigo: data.codigo,
-                    nombre: data.nombre
+                    nombre: data.nombre,
+                    precio: data.precio,
+                    descripcion: data.descripcion
                 });
             });
         }
@@ -93,7 +95,7 @@ class Form extends Component {
         } else {
             this.props.save(this.state, this.props.history)
         }
-        //this.props.history.push('/categorias/list');
+        this.props.history.push('/catalogo/categorias/list');
         event.preventDefault();
     }
 
@@ -113,14 +115,18 @@ class Form extends Component {
                 <CardContent>
                     <form onSubmit={this.handleSubmit}>
                         <label>
-                            Codigo:
-                            <input type="text" name="codigo" value={this.state.codigo} onChange={this.handleChange} />
+                            Nombre:
+                            <input type="text" name="nombre" value={this.state.nombre} onChange={this.handleChange} />
                         </label>
                         <br />
 
                         <label>
-                            Name:
-                            <input type="text" name="nombre" value={this.state.nombre} onChange={this.handleChange} />
+                            Precio:
+                            <input type="text" name="precio" value={this.state.precio} onChange={this.handleChange} />
+                        </label>
+                        <label>
+                            Descripcion:
+                            <input type="text" name="descripcion" value={this.state.descripcion} onChange={this.handleChange} />
                         </label>
                         <input type="submit" value="Submit" />
                     </form>

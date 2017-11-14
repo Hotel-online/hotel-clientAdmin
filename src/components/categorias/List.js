@@ -35,7 +35,7 @@ class List extends Component {
     render() {
         let { list, del } = this.props
         if (list) {
-            
+
         } else{
             list =[]
 
@@ -79,7 +79,8 @@ class List extends Component {
                                 <TableRow>
                                     <TableCell>#</TableCell>
                                     <TableCell >Nombre</TableCell>
-                                    <TableCell >Código</TableCell>
+                                    <TableCell >precio</TableCell>
+                                    <TableCell >Descripcion</TableCell>
                                     <TableCell >Edit</TableCell>
                                     <TableCell >Delete</TableCell>
                                 </TableRow>
@@ -90,7 +91,8 @@ class List extends Component {
                                     <TableRow key={index}>
                                         <TableCell numeric>{index + 1}</TableCell>
                                         <TableCell >{d.nombre}</TableCell>
-                                        <TableCell >{d.codigo}</TableCell>
+                                        <TableCell >{d.precio}</TableCell>
+                                        <TableCell >{d.descripcion}</TableCell>
                                         <TableCell >
                                             <Link to={`/catalogo/categorias/edit/${d.id}`} className="ui basic button green">Edit</Link>
                                         </TableCell>
